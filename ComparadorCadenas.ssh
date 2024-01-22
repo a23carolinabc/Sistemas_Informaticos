@@ -1,0 +1,29 @@
+#!/bin/bash
+cad1='Jose'
+cad2='José'
+if [ $cad1 \< $cad2 ]
+then
+    echo "Jose es menor que José"
+else
+    echo "a"
+fi
+if [ $cad1 == $cad2 ]
+then
+    echo "Jose y José son iguales"
+else
+    echo "a"
+fi
+# Así se demuestra que el acento se tiene en cuenta para la comparación de cadenas,
+# ocupando más la que lleve ese caracter.
+
+
+cad3='Carmen'
+cad4='Pepe'
+if [ $cad3 \< $cad4 ]
+then
+    echo "Carmen es menor que Pepe"
+else
+    echo "Pepe es mayor que Carmen"
+fi
+# Aunque 'Pepe' tiene menos letras la P está despues que la C,
+# por lo que ya interpreta que esa cadena es "mayor".
