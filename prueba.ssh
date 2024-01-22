@@ -1,0 +1,9 @@
+#!/bin/bash
+respuesta=0
+while (( respuesta != 3 ))
+do
+    echo "¿Qué quieres hacer?: "
+    echo "a. Usar la calculadora"
+    echo "b. Comprobar archivo"
+    read -p "" respuesta
+done

@@ -1,0 +1,51 @@
+#!/bin/bash
+clear
+respuesta="a"
+while (( respuesta != "e"))
+do
+    echo "¿Qué quieres hacer?: "
+    echo "a. Usar la calculadora"
+    echo "b. Comprobar archivo"
+    read -p "" opcion
+
+    case $opcion in
+        "a")
+            eleccion=0
+            while (( eleccion != 5 ))
+            do
+                read -p "Introduce un número: " num
+                read -p "¿Qué quieres hacer? 1.Sumar 2.Restar 3.Multiplicar 4.Dividir 5.Salir: " eleccion
+                case $eleccion in
+                1)
+                read -p "¿Qué le quieres sumar al número $num?: " sum
+                let "SUMA=($num + $sum)"
+                echo $SUMA
+                ;;
+                2)
+                read -p "¿Qué le quieres restar al número $num?: " res
+                let "RESTA=($num - $res)"
+                echo $RESTA
+                ;;
+                3)
+                read -p "¿Con qué número quieres multiplicar al número $num?: " mul
+                let "MULTIPLICAR=($num * $mul)"
+                echo $MULTIPLICAR
+                ;;
+                4)
+                read -p "¿Con qué número quieres dividir al número $num?: " div
+                let "DIVIDIR=($num / $div)"
+                echo $DIVIDIR
+                ;;
+                *) 
+                echo "Opción no válida"
+                esac
+            done
+        ;;
+
+    esac
+done
+
+
+function SUMA() {
+    #hacer funcion suma
+}
