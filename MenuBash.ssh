@@ -1,51 +1,75 @@
 #!/bin/bash
-clear
-respuesta="a"
-while (( respuesta != "e"))
+
+#VARIABLES
+opcion=0
+eleccion=0
+#FUNCIONES EN DOCUMENTO EXTERNO
+source Funciones.ssh
+
+#PROGRAMA
+while (( $opcion != 5 ))
 do
+    echo "MENÚ"
     echo "¿Qué quieres hacer?: "
-    echo "a. Usar la calculadora"
-    echo "b. Comprobar archivo"
+    echo "1. Usar la calculadora"
+    echo "2. Comprobar funciones"
+    echo "5. Salir"
     read -p "" opcion
 
     case $opcion in
-        "a")
-            eleccion=0
-            while (( eleccion != 5 ))
+        1)
+            while (( eleccion != 6 ))
             do
-                read -p "Introduce un número: " num
-                read -p "¿Qué quieres hacer? 1.Sumar 2.Restar 3.Multiplicar 4.Dividir 5.Salir: " eleccion
+                echo "¿Qué quieres hacer?: "
+                echo "1. Introducir número"
+                echo "2. Sumar"
+                echo "3. Restar"
+                echo "4. Multiplicar"
+                echo "5. Dividir"
+                echo "6. Atrás"
+                read -p "" eleccion
+
                 case $eleccion in
                 1)
-                read -p "¿Qué le quieres sumar al número $num?: " sum
-                let "SUMA=($num + $sum)"
-                echo $SUMA
+                read -p "Introduce un número: " numero
                 ;;
                 2)
-                read -p "¿Qué le quieres restar al número $num?: " res
-                let "RESTA=($num - $res)"
-                echo $RESTA
+                read -p "¿Qué le quieres sumar al número $numero?: " aSumar
+                SUMA $numero $aSumar
                 ;;
                 3)
-                read -p "¿Con qué número quieres multiplicar al número $num?: " mul
-                let "MULTIPLICAR=($num * $mul)"
-                echo $MULTIPLICAR
+                read -p "¿Qué le quieres restar al número $numero?: " aRestar
+                RESTA $numero $aSumar
                 ;;
                 4)
-                read -p "¿Con qué número quieres dividir al número $num?: " div
-                let "DIVIDIR=($num / $div)"
-                echo $DIVIDIR
+                read -p "¿Con qué número quieres multiplicar al número $numero?: " factor
+                MULTIPLICAR $numero $factor
+                ;;
+                5)
+                read -p "¿Con qué número quieres dividir al número $numero?: " divisor
+                DIVIDIR $numero $divisor
+                ;;
+                6)
+                clear
                 ;;
                 *) 
                 echo "Opción no válida"
                 esac
             done
         ;;
+        2)
+            while (( eleccion != 4 ))
+            do
+                echo "1. Comprobar función SUMA"
+                echo "1. Comprobar función RESTA"
+                echo "1. Comprobar función MULTIPLICAR"
+                echo "1. Comprobar función DIVISION"
+                read -p "" eleccion
 
+                case $eleccion in
+                    
+                esac
+            done
+        ;;
     esac
 done
-
-
-function SUMA() {
-    #hacer funcion suma
-}

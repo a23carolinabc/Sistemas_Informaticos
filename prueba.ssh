@@ -1,9 +1,7 @@
 #!/bin/bash
-respuesta=0
-while (( respuesta != 3 ))
+for function in Funciones.ssh
 do
-    echo "¿Qué quieres hacer?: "
-    echo "a. Usar la calculadora"
-    echo "b. Comprobar archivo"
-    read -p "" respuesta
+    grep $function -e 'SUMA'
 done
+
+
