@@ -18,6 +18,7 @@ do
 
     case $opcion in
         1)
+            clear
             while (( eleccion != 6 ))
             do
                 echo "¿Qué quieres hacer?: "
@@ -58,16 +59,46 @@ do
             done
         ;;
         2)
-            while (( eleccion != 4 ))
+            clear
+            while (( eleccion != 5 ))
             do
                 echo "1. Comprobar función SUMA"
-                echo "1. Comprobar función RESTA"
-                echo "1. Comprobar función MULTIPLICAR"
-                echo "1. Comprobar función DIVISION"
+                echo "2. Comprobar función RESTA"
+                echo "3. Comprobar función MULTIPLICAR"
+                echo "4. Comprobar función DIVISION"
+                echo "5. Atrás"
                 read -p "" eleccion
 
                 case $eleccion in
-                    
+                    1)
+                    for function in Funciones.ssh
+                    do
+                        grep $function -e 'SUMA'
+                    done
+                    ;;
+                    2)
+                    for function in Funciones.ssh
+                    do
+                        grep $function -e 'RESTA'
+                    done
+                    ;;
+                    3)
+                    for function in Funciones.ssh
+                    do
+                        grep $function -e 'MULTIPLICAR'
+                    done
+                    ;;
+                    4)
+                    for function in Funciones.ssh
+                    do
+                        grep $function -e 'DIVIDIR'
+                    done
+                    ;;
+                    5)
+                    clear
+                    ;;
+                    *) 
+                    echo "Opción no válida"
                 esac
             done
         ;;
