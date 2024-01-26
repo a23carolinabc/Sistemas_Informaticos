@@ -7,18 +7,17 @@ eleccion=0
 source Funciones.ssh
 
 #PROGRAMA
-while (( $opcion != 5 ))
+while (( $opcion != 3 ))
 do
     echo "MENÚ"
     echo "¿Qué quieres hacer?: "
     echo "1. Usar la calculadora"
     echo "2. Comprobar funciones"
-    echo "5. Salir"
+    echo "3. Salir"
     read -p "" opcion
 
     case $opcion in
         1)
-            clear
             while (( eleccion != 6 ))
             do
                 echo "¿Qué quieres hacer?: "
@@ -32,23 +31,36 @@ do
 
                 case $eleccion in
                 1)
+                clear
                 read -p "Introduce un número: " numero
                 ;;
                 2)
+                clear
                 read -p "¿Qué le quieres sumar al número $numero?: " aSumar
                 SUMA $numero $aSumar
+                echo $SUMA
+                sleep 3
                 ;;
                 3)
+                clear
                 read -p "¿Qué le quieres restar al número $numero?: " aRestar
                 RESTA $numero $aSumar
+                echo $RESTA
+                sleep 3
                 ;;
                 4)
+                clear
                 read -p "¿Con qué número quieres multiplicar al número $numero?: " factor
                 MULTIPLICAR $numero $factor
+                echo $MULTIPLICAR
+                sleep 3
                 ;;
                 5)
+                clear
                 read -p "¿Con qué número quieres dividir al número $numero?: " divisor
                 DIVIDIR $numero $divisor
+                echo $DIVIDIR
+                sleep 3
                 ;;
                 6)
                 clear
@@ -59,7 +71,6 @@ do
             done
         ;;
         2)
-            clear
             while (( eleccion != 5 ))
             do
                 echo "1. Comprobar función SUMA"
@@ -75,24 +86,28 @@ do
                     do
                         grep $function -e 'SUMA'
                     done
+                    sleep 3
                     ;;
                     2)
                     for function in Funciones.ssh
                     do
                         grep $function -e 'RESTA'
                     done
+                    sleep 3
                     ;;
                     3)
                     for function in Funciones.ssh
                     do
                         grep $function -e 'MULTIPLICAR'
                     done
+                    sleep 3
                     ;;
                     4)
                     for function in Funciones.ssh
                     do
                         grep $function -e 'DIVIDIR'
                     done
+                    sleep 3
                     ;;
                     5)
                     clear

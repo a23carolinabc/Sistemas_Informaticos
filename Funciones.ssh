@@ -1,16 +1,12 @@
 function SUMA() {
     let "SUMA=($numero + $aSumar)"
-    echo $SUMA
 }
 function RESTA() {
     let "RESTA=($numero - $aRestar)"
-    echo $RESTA
 }
 function MULTIPLICAR() {
     let "MULTIPLICAR=($numero * $factor)"
-    echo $MULTIPLICAR
 }
 function DIVIDIR() {
     let "DIVIDIR=($numero / $divisor)"
-    echo $DIVIDIR
 }
