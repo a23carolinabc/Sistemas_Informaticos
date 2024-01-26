@@ -1,7 +1,0 @@
-#!/bin/bash
-for function in Funciones.ssh
-do
-    grep $function -e 'SUMA'
-done
-
-
